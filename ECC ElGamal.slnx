@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ECC ElGamal/ECC ElGamal.vcxproj" Id="b3687a32-bf49-4d8f-9367-ca1037dd31a0" />
+</Solution>
