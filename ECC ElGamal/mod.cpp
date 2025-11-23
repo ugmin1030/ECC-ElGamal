@@ -4,7 +4,7 @@
 
 namespace ECC {
 	// 모듈로 연산 함수
-
+	
 	// 모듈로 상 덧셈 함수
 	unsigned long long modAdd(unsigned long long x, unsigned long long y) {
 
