@@ -9,8 +9,11 @@ namespace ECC {
 	// ¸ðµâ·Î »ó »¬¼À ÇÔ¼ö
 	unsigned long long modSub(unsigned long long x, unsigned long long y);
 
-	// ¸ðµâ·Î »ó °ö¼ÀÀ» À§ÇÑ 128ºñÆ® °ö¼À ÇÔ¼ö
+	// ¸ðµâ·Î »ó °ö¼À ÇÔ¼ö
 	unsigned long long modMul(unsigned long long x, unsigned long long y);
+
+	// ¸ðµâ·Î »ó ³ª´°¼À ÇÔ¼ö
+	unsigned long long modDiv(unsigned long long x, unsigned long long y);
 	
 	// °í¼Ó Áö¼ö ¿¬»ê
 	unsigned long long modPow(unsigned long long x, unsigned long long n);

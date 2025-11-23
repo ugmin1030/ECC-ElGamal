@@ -22,7 +22,7 @@ namespace ECC {
 		return modAdd(x, (p - y));
 	}
 
-	// 모듈로 상 곱셈을 위한 128비트 곱셈 함수
+	// 모듈로 상 곱셈 함수
 	unsigned long long modMul(unsigned long long x, unsigned long long y) {
 
 		// 128비트 중 상위 64비트와 하위 64비트
@@ -36,6 +36,13 @@ namespace ECC {
 		_udiv128(hi, lo, p, &result);
 
 		return result;
+	}
+
+	// 모듈로 상 나눗셈 함수
+	unsigned long long modDiv(unsigned long long x, unsigned long long y) {
+
+		// x / y ≡ x * y^(-1) mod p
+		return modMul(x, modInverse(y));
 	}
 
 	// 고속 지수 연산
