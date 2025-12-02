@@ -1,3 +1,5 @@
+#include "ECC.h"
+
 namespace ECC {
 
 	// 타원 곡선의 계수 a, b

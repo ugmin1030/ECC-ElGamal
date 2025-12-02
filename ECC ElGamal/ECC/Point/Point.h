@@ -20,7 +20,11 @@ namespace ECC{
 	
 	public:
 
+		// x로 가능한 y 값 찾기
+		// static unsigned long long* findY(const long long x);
+
 		// 유한 점 생성자
+		// Point(const long long x);
 		Point(const long long x, const long long y);
 
 		// 무한 원점 싱글톤 반환 함수
@@ -28,6 +32,10 @@ namespace ECC{
 
 		// 무한 원점 여부 반환
 		inline bool isInfinity() const { return _isInfinity; }
+
+		// 점이 ECC 상에 존재하는지 확인
+		static bool isOnCurve(const unsigned long long x, const unsigned long long y);
+		bool isOnCurve() const;
 
 		// 좌표 반환
 		inline unsigned long long getX() const { return x; }
@@ -51,4 +59,7 @@ namespace ECC{
 		// 출력
 		friend std::ostream& operator<<(std::ostream& os, const Point& p);
 	};
+
+	// k * P
+	Point operator*(const unsigned long long k, const Point& P);
 }

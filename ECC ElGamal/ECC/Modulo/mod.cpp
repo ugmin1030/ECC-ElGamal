@@ -1,5 +1,5 @@
 #include "mod.h"
-#include "ECC.h"
+#include "../ECC.h"
 #include <intrin.h>
 
 namespace ECC {
