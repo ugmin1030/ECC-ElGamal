@@ -6,7 +6,7 @@ namespace ECC {
 
 	// 모듈로 연산 함수
 	// ULL + ULL
-	ULL ULL::operator+(const ULL& other) const {
+	ULL ULL::operator+(const ULL& other) const noexcept {
 
 		unsigned long long x = this->value, y = other.value;
 
@@ -18,7 +18,7 @@ namespace ECC {
 	}
 
 	// ULL - ULL
-	ULL ULL::operator-(const ULL& other) const {
+	ULL ULL::operator-(const ULL& other) const noexcept {
 
 		unsigned long long x = this->value, y = other.value;
 
@@ -28,7 +28,9 @@ namespace ECC {
 	}
 
 	// ULL * ULL
-	ULL ULL::operator*(const ULL& other) const {
+	ULL ULL::operator*(const ULL& other) const noexcept {
+
+		// 오버플로우 방지 연산 라이브러리 사용
 		unsigned long long x = this->value, y = other.value;
 
 		// 128비트 중 상위 64비트와 하위 64비트
@@ -46,14 +48,29 @@ namespace ECC {
 
 	// ULL ^ ULL
 	ULL ULL::operator^(const ULL& other) const {
-		ULL x = *this, n = other;
+
+		// 0의 0 제곱은 예외 처리
+		if ((this->value == 0) && (other.value == 0)) {
+			std::cout << "error: 0의 0 제곱은 정의되지 않았습니다." << std::endl;
+			throw std::invalid_argument("error: 0의 0 제곱은 정의되지 않았습니다.");
+		}
+
+		// 지수가 0인 경우 1 반환
+		if ((other.value == 0)) return ULL(1);
+		
+		// 지수가 1이거나 밑이 0 또는 1인 경우 자기 자신 반환
+		if ((other.value == 1) || (this->value == 1) || (this->value == 0)) return *this;
+
+		ULL x = *this;
+		ULL n = other;
 
 		ULL result = 1;
 
+		// 고속 지수 연산 사용
 		while (n > 0) {
 
 			// n의 마지막 비트가 1인 경우
-			if (n.value & 1) {
+			if (n & 1) {
 
 				// result = (result * x) % p;
 				result *= x;
@@ -63,7 +80,7 @@ namespace ECC {
 			x *= x;
 
 			// n을 오른쪽으로 1비트 시프트
-			n.value >>= 1;
+			n >>= 1;
 		}
 
 		return result;
@@ -72,7 +89,13 @@ namespace ECC {
 	// ULL / ULL
 	ULL ULL::operator/(const ULL& other) const {
 
+		// 분모가 0인 경우 예외 처리
+		if (other.value == 0) {
+			std::cout << "error: 0으로 나눌 수 없습니다." << std::endl;
+			throw std::invalid_argument("error: 0으로 나눌 수 없습니다.");
+		}
+
 		// x / y ≡ x * y^(-1) mod p
-		return *this * other ^ (-1);
+		return *this * (other ^ (-1));
 	}
 }
