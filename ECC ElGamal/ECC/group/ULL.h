@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <string>
+#include <vector>
 #include "../ECC.h"
 
 namespace ECC {
@@ -19,6 +21,12 @@ namespace ECC {
 
 		// 생성자
 		ULL(unsigned long long v) noexcept : value(v % p) {}
+
+		// 문자열을 ULL 벡터로 인코딩 (암호화에 사용)
+		friend std::vector<ULL> stringToULL(const std::string& str);
+
+		// ULL 벡터를 문자열로 디코딩 (복호화에 사용)
+		friend std::string ULLToString(std::vector<ULL> ull_vec);
 
 		// ULL = unsigned long long
 		inline ULL& operator=(const unsigned long long v) noexcept { this->value = v % p; return *this; }
@@ -109,4 +117,7 @@ namespace ECC {
 		// ULL >>= ULL
 		inline ULL& operator>>=(const ULL other) noexcept { *this = *this >> other; return *this; }
 	};
+
+	std::vector<ULL> stringToULL(const std::string& str);
+	std::string ULLToString(std::vector<ULL> ull_vec);
 }

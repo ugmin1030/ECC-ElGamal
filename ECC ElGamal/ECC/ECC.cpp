@@ -6,9 +6,6 @@ namespace ECC {
 	//	std::cout << "타원 곡선의 계수 a, b: ";
 	//	std::cin >> a >> b;
 
-	//	std::cout << "유한체의 소수 p: ";
-	//	std::cin >> p;
-
 	//	isNotInitialized = false;
 	//}
 
@@ -17,7 +14,7 @@ namespace ECC {
 	unsigned long long a = 2ULL;
 	unsigned long long b = 3ULL;
 
-	// 유한체의 소수 p (unsigned long long 기준 최대 소수)
+	// 유한체의 소수 p (unsigned long long 기준 최대 소수로 고정)
 	unsigned long long p = 18446744073709551557ULL;
 
 	// ECC 초기화 여부
