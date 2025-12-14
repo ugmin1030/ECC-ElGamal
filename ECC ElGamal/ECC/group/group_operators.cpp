@@ -86,6 +86,28 @@ namespace ECC {
 		return result;
 	}
 
+	// ULL ^ unsigned long long
+	ULL ULL::operator^(const unsigned long long other) const {
+
+		// other가 -1이면 역원으로 처리.
+		if (other == -1) {
+
+			// this가 0이면 예외 처리
+			if (this->value == 0) {
+				std::cout << "error: 0의 역원은 정의되지 않았습니다." << std::endl;
+				throw std::invalid_argument("error: 0의 역원은 정의되지 않았습니다.");
+			}
+
+			return *this ^ ULL(p - 2);
+		}
+
+		else {
+
+			// 지수는 최대 p - 2
+			return *this ^ ULL(other > p - 2 ? (other - (p - 2)) : other);
+		}
+	}
+
 	// ULL / ULL
 	ULL ULL::operator/(const ULL& other) const {
 
