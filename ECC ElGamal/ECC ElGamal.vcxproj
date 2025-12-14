@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -127,14 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ECC.cpp" />
+    <ClCompile Include="ECC\ECC.cpp" />
+    <ClCompile Include="ECC\Elgamel\decryption\decryption.cpp" />
+    <ClCompile Include="ECC\Elgamel\encryption\encryption.cpp" />
+    <ClCompile Include="ECC\Elgamel\IPC.cpp" />
+    <ClCompile Include="ECC\group\stringWithULL.cpp" />
+    <ClCompile Include="ECC\Point\findY.cpp" />
+    <ClCompile Include="ECC\Point\Point_operators.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mod.cpp" />
+    <ClCompile Include="ECC\group\group_operators.cpp" />
+    <ClCompile Include="ECC\Point\Point.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ECC.h" />
-    <ClInclude Include="mod.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="ECC\Elgamel\Elgamel.h" />
+    <ClInclude Include="ECC\ECC.h" />
+    <ClInclude Include="ECC\Elgamel\IPC.h" />
+    <ClInclude Include="ECC\group\ULL.h" />
+    <ClInclude Include="ECC\Point\Point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

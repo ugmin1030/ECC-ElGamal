@@ -19,27 +19,60 @@
     <Filter Include="헤더 파일\ECC">
       <UniqueIdentifier>{187acfe7-8286-43c3-b727-5f8f28d3d05d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Elgamel">
+      <UniqueIdentifier>{fe382450-6f0d-4af4-97f8-f77e573492b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Elgamel">
+      <UniqueIdentifier>{6ec7f2e2-ef6f-4e3a-be0a-6c5ae655387b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="mod.cpp">
+    <ClCompile Include="ECC\Point\Point.cpp">
       <Filter>소스 파일\ECC</Filter>
     </ClCompile>
-    <ClCompile Include="ECC.cpp">
-      <Filter>소스 파일\ECC</Filter>
+    <ClCompile Include="ECC\Point\findY.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\Point\Point_operators.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\group\group_operators.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\ECC.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\group\stringWithULL.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\Elgamel\decryption\decryption.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\Elgamel\encryption\encryption.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ECC\Elgamel\IPC.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Point.h">
+    <ClInclude Include="ECC\Point\Point.h">
       <Filter>헤더 파일\ECC</Filter>
     </ClInclude>
-    <ClInclude Include="mod.h">
+    <ClInclude Include="ECC\group\ULL.h">
       <Filter>헤더 파일\ECC</Filter>
     </ClInclude>
-    <ClInclude Include="ECC.h">
+    <ClInclude Include="ECC\ECC.h">
       <Filter>헤더 파일\ECC</Filter>
+    </ClInclude>
+    <ClInclude Include="ECC\Elgamel\Elgamel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ECC\Elgamel\IPC.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
