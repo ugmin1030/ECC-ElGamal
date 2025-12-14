@@ -20,7 +20,7 @@ namespace ECC{
 		bool _isInfinity = false;
 		
 		// 무한 원점 생성자
-		Point() noexcept : _isInfinity(true) {}
+		Point(bool) noexcept : _isInfinity(true) {}
 	
 	public:
 
@@ -28,6 +28,7 @@ namespace ECC{
 		static std::optional<std::pair<ULL, ULL>> findY(const ULL x);
 
 		// 유한 점 생성자
+		Point() noexcept = default;
 		Point(const ULL x) noexcept;
 		Point(const ULL x, const ULL y) noexcept;
 

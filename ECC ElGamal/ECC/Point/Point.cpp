@@ -45,7 +45,7 @@ namespace ECC {
 
 	// 무한 원점 싱글톤 반환 함수
 	Point& Point::getInfinity() noexcept {
-		static Point instance;
+		static Point instance(true);
 		return instance;
 	}
 
