@@ -22,6 +22,9 @@ namespace ECC {
 		// 생성자
 		ULL(unsigned long long v) noexcept : value(v % p) {}
 
+		// 상수로 unsigned long long을 내는 함수
+		unsigned long long getValue() const noexcept { return value; }
+
 		// 문자열을 ULL 벡터로 인코딩 (암호화에 사용)
 		friend std::vector<ULL> stringToULL(const std::string& str);
 
